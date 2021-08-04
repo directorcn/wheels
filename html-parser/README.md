@@ -30,6 +30,8 @@
 
 遇到 `endTag` 出栈
 
+![animation](https://directorcn.github.io/links/static/images/wheel/v1-construct-tree.gif)
+
 ## Process textNode
 
 

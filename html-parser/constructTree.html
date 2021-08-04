@@ -59,7 +59,7 @@
     <button onclick="startParse()">parse</button>
     <div id="container">&nbsp;</div>
     <div id="tree">&nbsp;</div>
-    <script src="./html-parser.js"></script>
+    <script src="./htmlParser.js"></script>
     <script>
         const parser = new HTMLLexicalParser
         const stack = []
@@ -97,14 +97,14 @@
                 container.appendChild(p)
         
             for (let h = 200; h >= 0; h -= 2) {
-                await sleep(8)
+                await sleep(5)
                 p.style.top = `${stack.length * 30 + h}px`
             }
 
             if (type === 'startTag') {
                 for (let i = 0; i < 4; i ++) {
                     i % 2 ? p.classList.add('red') : p.classList.remove('red')
-                    await sleep(200)
+                    await sleep(75)
                 }
                 p.classList.remove('red')
                 // construct tree
@@ -122,7 +122,7 @@
                 for (let i = 0; i < 4; i ++) {
                     i % 2 ? p.classList.remove('red') : p.classList.add('red')
                     i % 2 ? last.classList.remove('red') : last.classList.add('red')
-                    await sleep(100)
+                    await sleep(75)
                 }
                 container.removeChild(p)
                 let { content } = stack.pop()
@@ -141,7 +141,7 @@
                     stack.push(token)
                 if (token.isSelfClosing) {
                     stack.pop()
-                    await sleep(100)
+                    await sleep(300)
                     container.removeChild(p)
                 }
             }
@@ -154,7 +154,7 @@
                 parser.receiveInput(c, count ++ === value.length - 1 )
             }
             for (const token of parser.tokens) {
-                await sleep(1600)
+                await sleep(1300)
                 console.log(token)
                 handler(token)
             }

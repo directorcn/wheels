@@ -8,6 +8,6 @@ Make wheels together.
 
 
 - [x] HTTP
-
 - [x] HTML lexical parser
+- [x] Promise
 
